@@ -1,0 +1,14 @@
+#!/bin/bash
+#logger script to make short notes during my summer internship at RedHat Inc.
+
+TODAY=`date +%Y-%m-%d`
+FULL_TIMESTAMP=`date +%H:%M:%S`
+
+if [ "$1" = "-n" ]; then
+	touch ~/intern-logs/${TODAY}.txt
+	echo "${FULL_TIMESTAMP} - $2" >> ~/intern-logs/${TODAY}.txt
+elif [ "$1" = "-t" ]; then
+	echo "${FULL_TIMESTAMP} - $2" >> ~/intern-logs/${TODAY}.txt
+else
+	echo "log -n|-t <sequence-of-characters>"
+fi
